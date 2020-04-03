@@ -20,6 +20,7 @@ import {
   StatusBar,
   TouchableOpacity,
   Platform,
+  TextInput,
 } from 'react-native';
 
 import {
@@ -30,16 +31,17 @@ import {
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
 
-const apiUrl = 'https://f8cb8689.eu.ngrok.io/accessToken?identity=harys';
+const apiUrl = 'https://f8cb8689.eu.ngrok.io/accessToken?identity=';
 
 declare var global: {HermesInternal: null | {}};
 
 const App = () => {
 
   const [identity, setIdentity] = useState(Math.floor(Math.random()*90000) + 10000);
+  const [phone, setPhone] = useState('Alice');
 
   const getAccessTokenFromServer = async () => {
-    const request = await fetch(apiUrl);
+    const request = await fetch(`${apiUrl}${identity}`);
     const resp = await request.json();
     console.log(resp);
     return resp.token;
@@ -63,11 +65,11 @@ const App = () => {
 }
 
 const CallSomeone = () => {
-  console.log('Calling!!!');
+  console.log('Calling!!!', phone);
   // set speaker
   TwilioVoice.setSpeakerPhone(true);
   // start a call
-TwilioVoice.connect({To: 'Alice'})
+TwilioVoice.connect({To: phone})
 }
 
 const CallAccept = () => {
@@ -126,23 +128,17 @@ useEffect(() => {
           )}
           <View>
           <Text style={{ color:'red', fontSize: 16 }}>Identity: {identity}</Text>
-            <TouchableOpacity 
+           <TextInput
+           onChangeText={text => setPhone(text)}
+           keyboardType="numeric"
             style={{
-              backgroundColor: 'red',
+              borderWidth: 1,
               marginTop: 20,
-              padding: 20,
-              alignItems: 'center'
+              padding: 8,
+              textAlign: "center",
+              fontSize: 22
             }}
-            onPress={CallSomeone}
-            >
-              <Text
-              style={{
-                color: '#FFFFFF',
-                fontSize: 26
-              }}
-              >Call Someone</Text>
-            </TouchableOpacity>
-
+           />   
             <TouchableOpacity 
             style={{
               backgroundColor: 'green',
@@ -157,7 +153,7 @@ useEffect(() => {
                 color: '#FFFFFF',
                 fontSize: 26
               }}
-              >Incoming Call!!</Text>
+              >Call!!</Text>
             </TouchableOpacity>
 
           </View>
