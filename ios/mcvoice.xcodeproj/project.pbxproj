@@ -17,6 +17,7 @@
 		2D02E4BF1E0B4AB3006451C7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		2DCD954D1E0B4F2C00145EB5 /* mcvoiceTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* mcvoiceTests.m */; };
 		43938E59243696B5002C62E2 /* libRNTwilioVoice.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 43938E58243696B5002C62E2 /* libRNTwilioVoice.a */; };
+		43938E5B24379D0A002C62E2 /* main.jsbundle in Resources */ = {isa = PBXBuildFile; fileRef = 008F07F21AC5B25A0029DE68 /* main.jsbundle */; };
 		98DE769B5913BE3F3D64CE05 /* libPods-mcvoice-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C00D34F846DAA85A4D94E57 /* libPods-mcvoice-tvOS.a */; };
 		AB175752B4935A60BAD6A531 /* libPods-mcvoice-tvOSTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 507FBA8F607613B17B662CD0 /* libPods-mcvoice-tvOSTests.a */; };
 		C67BCAB0BF8B39B39CAB9A1D /* libPods-mcvoice.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B2819580265704A5418B0F3 /* libPods-mcvoice.a */; };
@@ -347,6 +348,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				43938E5B24379D0A002C62E2 /* main.jsbundle in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */,
 			);
