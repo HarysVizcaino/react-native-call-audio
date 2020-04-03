@@ -8,7 +8,7 @@
  * @format
  */
 
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import TwilioVoice from 'react-native-twilio-programmable-voice'
 
 import {
@@ -30,11 +30,13 @@ import {
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
 
-const apiUrl = 'https://f8cb8689.eu.ngrok.io/accessToken';
+const apiUrl = 'https://f8cb8689.eu.ngrok.io/accessToken?identity=harys';
 
 declare var global: {HermesInternal: null | {}};
 
 const App = () => {
+
+  const [identity, setIdentity] = useState(Math.floor(Math.random()*90000) + 10000);
 
   const getAccessTokenFromServer = async () => {
     const request = await fetch(apiUrl);
@@ -123,7 +125,7 @@ useEffect(() => {
             </View>
           )}
           <View>
-            <Text>HI testing</Text>
+          <Text style={{ color:'red', fontSize: 16 }}>Identity: {identity}</Text>
             <TouchableOpacity 
             style={{
               backgroundColor: 'red',
